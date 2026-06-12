@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+/* ─── Cyber Neon Blue Pulse ──────────────────────────────────────── */
+:root {
+  --neon: #1a6fff;
+  --neon-bright: #4d94ff;
+  --neon-dim: #0d4bcc;
+  --neon-glow: rgba(26, 111, 255, 0.6);
+  --neon-glow-soft: rgba(26, 111, 255, 0.25);
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    color: #4d94ff;
+    text-shadow:
+      0 0 4px rgba(77, 148, 255, 0.9),
+      0 0 12px rgba(26, 111, 255, 0.7),
+      0 0 28px rgba(26, 111, 255, 0.45),
+      0 0 56px rgba(26, 111, 255, 0.2);
+  }
+  50% {
+    color: #80b3ff;
+    text-shadow:
+      0 0 6px rgba(128, 179, 255, 1),
+      0 0 18px rgba(77, 148, 255, 0.9),
+      0 0 40px rgba(26, 111, 255, 0.65),
+      0 0 80px rgba(26, 111, 255, 0.3);
+  }
+}
+
+@keyframes borderPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 6px rgba(26, 111, 255, 0.5),
+      0 0 18px rgba(26, 111, 255, 0.25),
+      inset 0 0 6px rgba(26, 111, 255, 0.08);
+    border-color: #1a6fff;
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(77, 148, 255, 0.8),
+      0 0 35px rgba(26, 111, 255, 0.45),
+      inset 0 0 10px rgba(26, 111, 255, 0.12);
+    border-color: #4d94ff;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(26, 111, 255, 0.5),
+      0 0 20px rgba(26, 111, 255, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 16px rgba(77, 148, 255, 0.8),
+      0 0 40px rgba(26, 111, 255, 0.45),
+      0 0 70px rgba(26, 111, 255, 0.2);
+  }
+}
+
+@keyframes bgGlowPulse {
+  0%, 100% {
+    background-color: #1a6fff;
+    box-shadow: 0 0 12px rgba(26, 111, 255, 0.6), 0 0 35px rgba(26, 111, 255, 0.25);
+  }
+  50% {
+    background-color: #4d94ff;
+    box-shadow: 0 0 20px rgba(77, 148, 255, 0.9), 0 0 55px rgba(26, 111, 255, 0.45);
+  }
+}
+
+/* Utility classes */
+.neon-text {
+  animation: neonPulse 4s ease-in-out infinite;
+}
+
+.neon-border {
+  animation: borderPulse 4s ease-in-out infinite;
+}
+
+.neon-glow {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.neon-bg {
+  animation: bgGlowPulse 4s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+[data-aos="drop-bounce"] {
+  opacity: 0;
+}
+[data-aos="drop-bounce"].aos-animate {
+  animation: dropBounce 1.2s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+}
+
+@keyframes dropBounce {
+  0% { transform: translateY(-300px); opacity: 0; }
+  50% { transform: translateY(0); opacity: 1; }
+  65% { transform: translateY(-40px); opacity: 1; }
+  80% { transform: translateY(0); opacity: 1; }
+  90% { transform: translateY(-15px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
